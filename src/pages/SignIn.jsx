@@ -32,7 +32,7 @@ const SignIn = () => {
         <h2 className="text-2xl font-semibold text-gray-700 dark:text-white">
           Authentication Using Google
         </h2>
-        <GoogleOAuthProvider clientId="611435692871-6mtldi0qv71ee4165bsacaa9ivb2ffdk.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
           <div className="flex justify-center mt-4">
             <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
           </div>

@@ -79,7 +79,7 @@ const HospitalsList = () => {
             <h2 className="sm:text-6xl xs:text-2xl font-semibold sm:mb-10 text-gray-900 dark:text-white ">
               Hospitals Near You: {hospitals.length}
             </h2>
-            <div className="sm:mb-10">
+            <div className="sm:mb-10 xs:mb-3">
               {hospitals.length > 0 && (
                 <div className="flex justify-center md:w-full md:mt-10 xs:text-sm">
                   <PaginationSection
