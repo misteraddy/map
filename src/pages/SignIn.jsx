@@ -27,7 +27,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="w-full max-w-md rounded-lg xs:h-80 xs:w-96 bg-white border dark:bg-black dark:border-white">
+    <div className="w-full max-w-md rounded-lg xs:w-96 bg-white border dark:bg-black dark:border-white">
       <div className="px-6 py-8 text-center">
         <h2 className="text-2xl font-semibold text-gray-700 dark:text-white">
           Authentication Using Google
