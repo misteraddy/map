@@ -4,16 +4,17 @@ import NoDataPresent from "../NotFound/NoDataPresent";
 import PaginationSection from "@/components/Pagination/PaginationSection";
 import ShimmerCard from "../../components/Shimmer/ShimmerCard";
 import CardSection from "../../components/CardSection/CardSection";
-
+import { useTheme } from "../DarkMode/ThemeProvider";
 
 const HospitalsList = () => {
   const [userLocation, setUserLocation] = useState(null);
   const [hospitals, setHospitals] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { theme } = useTheme();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 3;
 
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
@@ -76,9 +77,17 @@ const HospitalsList = () => {
           <ShimmerCard count={9} />
         ) : hospitals.length > 0 ? (
           <>
-            <h2 className="sm:text-6xl xs:text-2xl font-semibold sm:mb-10 text-gray-900 dark:text-white ">
-              Hospitals Near You: {hospitals.length}
+            <h2 className="sm:text-6xl xs:text-2xl font-semibold sm:mb-10 text-gray-900 dark:text-white">
+              Hospitals Near You:{" "}
+              <span
+                className={`${
+                  theme === "dark" ? "text-red-600" : "text-blue-500"
+                }`}
+              >
+                {hospitals.length}
+              </span>
             </h2>
+
             <div className="sm:mb-10 xs:mb-3">
               {hospitals.length > 0 && (
                 <div className="flex justify-center md:w-full md:mt-10 xs:text-sm">
@@ -91,7 +100,7 @@ const HospitalsList = () => {
                 </div>
               )}
             </div>
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentItems.map((hospital, index) => (
                 <CardSection key={index} hospital={hospital} />
               ))}
